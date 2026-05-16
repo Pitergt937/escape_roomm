@@ -3,7 +3,7 @@ from datetime import date
 
 
 def crear_cliente():
-    """Registra un nuevo cliente en la BD."""
+    """Registra un nuevo cliente en la BD"""
     conexion = conectar()
     cursor = conexion.cursor()
 
@@ -22,7 +22,7 @@ def crear_cliente():
         )
 
         conexion.commit()
-        print("✔ Cliente registrado correctamente.")
+        print("Cliente registrado correctamente.")
 
     except Exception as e:
         print(f"Error al registrar cliente: {e}")
@@ -31,7 +31,7 @@ def crear_cliente():
 
 
 def ver_clientes():
-    """Muestra todos los clientes registrados."""
+    """Muestra todos los clientes registrados"""
     conexion = conectar()
     cursor = conexion.cursor()
 
@@ -52,7 +52,7 @@ def ver_clientes():
 
 
 def buscar_cliente():
-    """Busca un cliente por nombre."""
+    """Busca un cliente por nombre"""
     nombre = input("Nombre a buscar: ").strip()
     conexion = conectar()
     cursor = conexion.cursor()
@@ -77,7 +77,7 @@ def buscar_cliente():
 
 
 def modificar_cliente():
-    """Modifica los datos de un cliente."""
+    """Modifica los datos de un cliente"""
     ver_clientes()
     conexion = conectar()
     cursor = conexion.cursor()
@@ -121,7 +121,7 @@ def modificar_cliente():
 
 
 def eliminar_cliente():
-    """Elimina un cliente si no tiene reservas activas."""
+    """Elimina un cliente si no tiene reservas activas"""
     ver_clientes()
     conexion = conectar()
     cursor = conexion.cursor()
@@ -150,7 +150,7 @@ def eliminar_cliente():
 
 
 def menu_clientes():
-    """Submenú de gestión de clientes."""
+    """Submenú de gestión de clientes"""
     while True:
         print("\n--- GESTIÓN DE CLIENTES ---")
         print("1. Registrar cliente")

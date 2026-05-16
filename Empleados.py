@@ -2,7 +2,7 @@ from database import conectar
 
 
 def crear_empleado():
-    """Registra un nuevo empleado en la BD."""
+    """Registra un nuevo empleado en la BD"""
     conexion = conectar()
     cursor = conexion.cursor()
 
@@ -20,7 +20,7 @@ def crear_empleado():
         )
 
         conexion.commit()
-        print("✔ Empleado registrado correctamente.")
+        print("Empleado registrado correctamente.")
 
     except Exception as e:
         print(f"Error al registrar empleado: {e}")
@@ -29,7 +29,7 @@ def crear_empleado():
 
 
 def ver_empleados():
-    """Muestra todos los empleados registrados."""
+    """Muestra todos los empleados registrados"""
     conexion = conectar()
     cursor = conexion.cursor()
 
@@ -48,7 +48,7 @@ def ver_empleados():
 
 
 def modificar_empleado():
-    """Modifica los datos de un empleado."""
+    """Modifica los datos de un empleado"""
     ver_empleados()
     conexion = conectar()
     cursor = conexion.cursor()
@@ -81,7 +81,7 @@ def modificar_empleado():
             return
 
         conexion.commit()
-        print("✔ Empleado modificado correctamente.")
+        print("Empleado modificado correctamente.")
 
     except ValueError:
         print("Introduce un número válido.")
@@ -92,7 +92,7 @@ def modificar_empleado():
 
 
 def eliminar_empleado():
-    """Elimina un empleado si no tiene reservas asignadas."""
+    """Elimina un empleado si no tiene reservas asignadas"""
     ver_empleados()
     conexion = conectar()
     cursor = conexion.cursor()
@@ -110,7 +110,7 @@ def eliminar_empleado():
 
         cursor.execute("DELETE FROM empleados WHERE id = ?", (id_emp,))
         conexion.commit()
-        print("✔ Empleado eliminado correctamente.")
+        print("Empleado eliminado correctamente.")
 
     except ValueError:
         print("Introduce un número válido.")
@@ -121,7 +121,7 @@ def eliminar_empleado():
 
 
 def menu_empleados():
-    """Submenú de gestión de empleados."""
+    """Submenú de gestión de empleados"""
     while True:
         print("\n--- GESTIÓN DE EMPLEADOS ---")
         print("1. Registrar empleado")

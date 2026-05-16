@@ -2,7 +2,7 @@ from database import conectar
 
 
 def crear_sala():
-    """Pide los datos de una sala nueva y la inserta en la BD."""
+    """Pide los datos de una sala nueva y la inserta en la BD"""
     conexion = conectar()
     cursor = conexion.cursor()
 
@@ -10,7 +10,7 @@ def crear_sala():
         nombre = input("Nombre de la sala: ").strip()
         dificultad = input("Dificultad (fácil/medio/difícil): ").strip()
 
-        # Validamos que capacidad y tiempo sean números positivos
+        # Comprobamos que capacidad y tiempo sean números positivos
         while True:
             try:
                 capacidad = int(input("Capacidad máxima de jugadores: "))
@@ -50,7 +50,7 @@ def crear_sala():
 
 
 def ver_salas():
-    """Muestra todas las salas registradas."""
+    """Muestra todas las salas registradas"""
     conexion = conectar()
     cursor = conexion.cursor()
 
@@ -71,7 +71,7 @@ def ver_salas():
 
 
 def modificar_sala():
-    """Modifica los datos de una sala existente."""
+    """Modifica los datos de una sala existente"""
     ver_salas()
     conexion = conectar()
     cursor = conexion.cursor()
@@ -124,7 +124,7 @@ def modificar_sala():
 
 
 def eliminar_sala():
-    """Elimina una sala. Falla si tiene reservas activas (clave foránea)."""
+    """Elimina una sala"""
     ver_salas()
     conexion = conectar()
     cursor = conexion.cursor()

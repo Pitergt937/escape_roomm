@@ -5,7 +5,7 @@ from empleados import ver_empleados
 
 
 def crear_reserva():
-    """Crea una nueva reserva comprobando que la sala no esté ocupada."""
+    """Crea una nueva reserva comprobando que la sala no esté ocupada"""
     conexion = conectar()
     cursor = conexion.cursor()
 
@@ -41,7 +41,7 @@ def crear_reserva():
             (sala_id, fecha, hora)
         )
         if cursor.fetchone():
-            print("⚠ La sala ya está reservada en esa franja horaria.")
+            print("La sala ya está reservada en esa franja horaria.")
             return
 
         cursor.execute(
@@ -54,7 +54,7 @@ def crear_reserva():
         )
 
         conexion.commit()
-        print("✔ Reserva creada correctamente.")
+        print("Reserva creada correctamente.")
 
     except ValueError:
         print("Introduce un valor válido.")
@@ -96,7 +96,7 @@ def ver_reservas():
 
 
 def ver_reservas_por_fecha():
-    """Filtra reservas por una fecha concreta."""
+    """Filtra reservas por una fecha concreta"""
     fecha = input("Fecha a consultar (YYYY-MM-DD): ").strip()
     conexion = conectar()
     cursor = conexion.cursor()
@@ -130,7 +130,7 @@ def ver_reservas_por_fecha():
 
 
 def cambiar_estado_reserva():
-    """Cambia el estado de una reserva (pendiente → en curso → completada / cancelada)."""
+    """Cambia el estado de una reserva (pendiente → en curso → completada / cancelada)"""
     ver_reservas()
     conexion = conectar()
     cursor = conexion.cursor()
@@ -170,7 +170,7 @@ def cambiar_estado_reserva():
             (estados[opcion], id_reserva)
         )
         conexion.commit()
-        print(f"✔ Estado cambiado a '{estados[opcion]}'.")
+        print(f"Estado cambiado a '{estados[opcion]}'.")
 
     except ValueError:
         print("Introduce un número válido.")
@@ -181,7 +181,7 @@ def cambiar_estado_reserva():
 
 
 def cancelar_reserva():
-    """Cancela una reserva cambiando su estado a 'cancelada'."""
+    """Cancela una reserva cambiando su estado a 'cancelada'"""
     ver_reservas()
     conexion = conectar()
     cursor = conexion.cursor()
@@ -197,7 +197,7 @@ def cancelar_reserva():
             print("No existe ninguna reserva con ese ID.")
         else:
             conexion.commit()
-            print("✔ Reserva cancelada.")
+            print("Reserva cancelada.")
 
     except ValueError:
         print("Introduce un número válido.")
@@ -208,7 +208,7 @@ def cancelar_reserva():
 
 
 def menu_reservas():
-    """Submenú de gestión de reservas."""
+    """Submenú de gestión de reservas"""
     while True:
         print("\n--- GESTIÓN DE RESERVAS ---")
         print("1. Crear reserva")

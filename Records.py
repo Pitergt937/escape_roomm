@@ -66,7 +66,7 @@ def registrar_resultado():
 
         fecha = input("Fecha de la sesión (YYYY-MM-DD): ").strip()
 
-        # ── INICIO DE TRANSACCIÓN ──────────────────────────────────────────
+        # INICIO DE TRANSACCIÓN 
         conexion.execute("BEGIN")
 
         # Paso 1: insertar el record
@@ -127,7 +127,7 @@ def registrar_resultado():
             (reserva_id,)
         )
 
-        # ── COMMIT si todo fue bien ────────────────────────────────────────
+        # COMMIT si fue bien
         conexion.commit()
         print(f"\n✔ Resultado registrado. Tiempo final: {tiempo_final} min "
               f"({tiempo_real} real + {total_penalizacion} penalizaciones).")

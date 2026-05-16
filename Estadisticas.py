@@ -5,7 +5,6 @@ def ver_estadisticas():
     """
     Muestra estadísticas generales por sala:
     total de reservas, tiempo medio de finalización y mejor récord.
-    Consulta compleja con LEFT JOIN y funciones de agregación (COUNT, AVG, MIN).
     """
     conexion = conectar()
     cursor = conexion.cursor()
